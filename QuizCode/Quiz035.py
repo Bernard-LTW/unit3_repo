@@ -8,10 +8,10 @@ class Account:
         number1 = random.randint(100,999)
         number2 = random.randint(10000,99999)
         number3 = random.randint(0,9)
-        self.number = [f"{number1}-{number2}-{number3}"]
+        self.number = [number1,number2,number3]
 
     def get_account_no(self):
-        return self.number[0]
+        return f"{self.number[0]}-{self.number[1]}-{self.number[2]}"
 
     def set_holder_name(self,name):
         if not isinstance(name, str):
