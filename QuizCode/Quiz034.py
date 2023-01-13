@@ -35,9 +35,45 @@ def to_roman(num:int)->str:
     return roman
 
 
-print(to_roman(44))
+#print(to_roman(44))
 
 
+#OOP
+class quiz34:
+    def __init__(self, num):
+        self.num = num
 
+    def solve(self):
+        #Convert int to roman number
+        roman = ""
+        if self.num == 100:
+            roman = "C"
+            self.num = 0
+        if self.num >= 90:
+            roman += "XC"
+            self.num -= 90
+        if self.num >= 50:
+            roman += "L"
+            self.num -= 50
+        if self.num >= 40:
+            roman += "XL"
+            self.num -= 40
+        if self.num >= 10:
+            roman += "X" * (self.num // 10)
+            self.num %= 10
+        if self.num >= 9:
+            roman += "IX"
+            self.num -= 9
+        if self.num >= 5:
+            roman += "V"
+            self.num -= 5
+        if self.num >= 4:
+            roman += "IV"
+            self.num -= 4
+        if self.num >= 1:
+            roman += "I" * self.num
+        return roman
 
+case1 = quiz34(num=44)
+print(case1.solve())
 
