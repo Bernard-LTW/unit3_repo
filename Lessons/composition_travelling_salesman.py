@@ -1,7 +1,9 @@
+import random
+random.seed(0)
 class Coordinate:
     def __init__(self,x,y):
-        self.x:int = x
-        self.y:int = y
+        self.x:float = x
+        self.y:float = y
     def __repr__(self):
         return f"Coordinate({self.x},{self.y})"
 class City:
@@ -12,6 +14,8 @@ class City:
         return self.name
     def get_location(self):
         return self.location
+    def dist_calc(self,city):
+        return ((self.location.x - city.location.x)**2 + (self.location.y - city.location.y)**2)**0.5
 
     def __repr__(self):
         return f"City({self.name},{self.location})"
@@ -28,13 +32,31 @@ class country:
         if not isinstance(city,City):
             raise ValueError("City must be a City object")
         self.cities.append(city)
+    def get_capital(self):
+        return self.capital
+    def get_cities(self):
+        return self.cities
 
-tokyo = City("Tokyo",location=Coordinate(5,5))
-print(tokyo)
 
-hk = City("Hong Kong",location=Coordinate(10,10))
+us_city_name = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "Phoenix", "San Antonio", "San Diego", "Dallas", "San Jose"]
 
-japan = country("Japan",capital=tokyo)
+us_capital = City("Washington DC",Coordinate(38.8951,-77.0367))
+us = country("United States",us_capital)
 
-japan.new_city(hk)
+for name in us_city_name:
+    city = City(name,Coordinate(random.randint(0,100),random.randint(0,100)))
+    us.new_city(city)
+
+print(us.get_capital())
+print(us.get_cities())
+
+#Homework
+#Create 10 random cities in a unit-3 smart way
+#Create a method in the class city that recieves as input another city and returns the distance between them
+#3-500 original characters: What is the salesman problem and possible solutions?
+
+"""
+
+"""
+
 

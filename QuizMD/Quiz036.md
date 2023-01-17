@@ -110,5 +110,5 @@ def test_classroom():
 *Fig.1* **Screenshot showing the result of the testing**
 
 ## UML Diagram
-![](/Assets/Quiz036_UML.jpg)
+![](/Assets/Quiz036_UML.jpeg)
 *Fig.2* **UML Diagram of Classes**
