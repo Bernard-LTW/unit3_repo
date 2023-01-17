@@ -56,7 +56,7 @@ print(us.get_cities())
 #3-500 original characters: What is the salesman problem and possible solutions?
 
 """
-
+The salesman needs to transport lemon tea over states. He needs to calculate the shortest distance in between states and also the shortest path one should take. The way to calculate the distance between points and compare is to write a program to find out the line distances between points and sort them accordingly.
 """
 
 
