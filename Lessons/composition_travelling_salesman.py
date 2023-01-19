@@ -47,10 +47,10 @@ for name in us_city_name:
     city = City(name,Coordinate(random.randint(0,100),random.randint(0,100)))
     us.new_city(city)
 
-print(us.get_capital())
-print(us.get_cities())
+#print(us.get_capital())
+#print(us.get_cities())
 
-#Homework
+#Homework 0117
 #Create 10 random cities in a unit-3 smart way
 #Create a method in the class city that recieves as input another city and returns the distance between them
 #3-500 original characters: What is the salesman problem and possible solutions?
@@ -59,4 +59,12 @@ print(us.get_cities())
 The salesman needs to transport lemon tea over states. He needs to calculate the shortest distance in between states and also the shortest path one should take. The way to calculate the distance between points and compare is to write a program to find out the line distances between points and sort them accordingly.
 """
 
+
+#Homework 0118
+#Calculate the distance between the captial and all cities in the country
+
+for city in us.get_cities():
+    temp = us.get_capital().dist_calc(city)
+    format_float = "{:.2f}".format(temp)
+    print(f"Distance between {us.get_capital().get_name()} and {city.get_name()} is {format_float}")
 
