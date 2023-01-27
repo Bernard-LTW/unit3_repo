@@ -1,4 +1,5 @@
 import random
+from matplotlib import pyplot
 random.seed(0)
 class Coordinate:
     def __init__(self,x,y):
