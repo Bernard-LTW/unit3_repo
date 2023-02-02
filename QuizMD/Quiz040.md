@@ -1,4 +1,4 @@
-# Quiz 039
+# Quiz 040
 
 ## Prompt
 Code the program and GUI according to the given image.
