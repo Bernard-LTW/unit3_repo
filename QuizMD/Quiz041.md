@@ -187,8 +187,8 @@ MDScreen:
 
 ## Evidence
 
-![](/Assets/Quiz040_EvidenceA.jpg)
+![](/Assets/Quiz041_EvidenceA.jpg)
 *Fig.1* **Image showing GUI of program**
 
-![](/Assets/Quiz040_EvidenceB.jpg)
+![](/Assets/Quiz041_EvidenceB.jpg)
 *Fig.2* **Image showing GUI of program**
