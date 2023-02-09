@@ -5,7 +5,7 @@ Create a table according to the image and insert two items into the table.
 
 ## Code Structure
 
-###SQL Script
+### SQL Script
 ```.sql
 DROP TABLE if exists Movies;
 CREATE TABLE if not exists Movies(
