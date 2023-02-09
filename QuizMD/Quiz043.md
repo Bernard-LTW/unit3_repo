@@ -1,4 +1,4 @@
-# Quiz 041
+# Quiz 043
 
 ## Prompt
 Create a table according to the image and insert two items into the table.
