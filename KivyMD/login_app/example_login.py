@@ -2,11 +2,57 @@
 
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
+import sqlite3
+
+class database_handler:
+    def __init__(self,dbname):
+        self.connection = sqlite3.connect(dbname)
+        self.cursor = self.connection.cursor()
+
+    def create_table(self):
+        query = f"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL unique , username TEXT NOT NULL , password TEXT NOT NULL )"
+        self.run_query(query)
+
+    def run_query(self, query):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    def close(self):
+        self.connection.close()
+
+    def insert_user(self, email, username, password):
+        # Check if user exists in database and if not insert use
+        if self.check_user(email) == False:
+            query = f"INSERT into users (email, username, password) VALUES('{email}', '{username}', '{password}')"
+            self.run_query(query)
+            print("User registered")
+        else:
+            print("User already exists")
+
+    def check_user(self, email):
+        query = f"SELECT * from users WHERE email = '{email}'"
+        self.run_query(query)
+        if self.cursor.fetchone() is None:
+            return False
+        else:
+            return True
+
+    def login_check(self, username, password):
+        query = f"SELECT * from users WHERE username = '{username}' AND password = '{password}'"
+        self.run_query(query)
+        if self.cursor.fetchone() is None:
+            return False
+        else:
+            return True
+
+
 
 class LoginScreen(MDScreen):
     def login(self):
         print(f"Username: {self.ids.uname.text} Password: {self.ids.pwd.text}")
-        if  self.ids.uname.text == "admin" and self.ids.pwd.text == "admin":
+        username = self.ids.uname.text
+        password = self.ids.pwd.text
+        if  example_login.db.login_check(username, password) == True:
             print("Login success")
         else:
             print("Login failed")
@@ -21,12 +67,19 @@ class RegisterScreen(MDScreen):
             print("Passwords do not match")
             self.ids.cpwd.error = True
             self.ids.cpwd.md_bg_color = "red"
+        else:
+            self.ids.cpwd.error = False
+            self.ids.cpwd.md_bg_color = "green"
+            example_login.db.insert_user(email, uname, pwd)
+
 
 
 
 
 
 class example_login(MDApp):
+    db = database_handler("login_database.db")
+    db.create_table()
     def build(self):
         return
 
