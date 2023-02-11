@@ -1,3 +1,17 @@
+# Quiz 044
+
+## Prompt
+Download the database smallcase.db from the learning log and write the SQL statements to solve the prompts below.
+
+
+## Question 1: Create the UML diagram for the database.
+
+![](Assets/Quiz045_UML.jpeg)
+*Fig.1* **UML diagram for the database.**
+
+## Question 2: Create the SQL queries to find the responsible for the fradulent transaction.
+
+```.sql
 select name from sqlite_master
 
 select * from transactions
@@ -19,4 +33,14 @@ select case when total_deposit - total_withdraw != balance then 'bad' else 'good
 from (select sum(amount) as total_deposit, account_id as a_d from transactions where transaction_type = 'deposit' group by account_id),
 (select sum(amount) as total_withdraw, account_id as a_w from transactions where transaction_type = 'withdraw' group by account_id),
 accounts where a_d = a_w and a_d = accounts.account_id
+```
+
+
+
+## Question 3: What is the name of the customer and the problem that resulted in the bankruptcy of the bank?
+
+
+
+
+
 
