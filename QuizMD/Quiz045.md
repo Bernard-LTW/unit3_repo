@@ -1,4 +1,4 @@
-# Quiz 044
+# Quiz 045
 
 ## Prompt
 Download the database smallcase.db from the learning log and write the SQL statements to solve the prompts below.
