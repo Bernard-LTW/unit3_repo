@@ -6,7 +6,7 @@ Download the database smallcase.db from the learning log and write the SQL state
 
 ## Question 1: Create the UML diagram for the database.
 
-![](Assets/Quiz045_UML.jpeg)
+![](/Assets/Quiz045_UML.jpeg)
 *Fig.1* **UML diagram for the database.**
 
 ## Question 2: Create the SQL queries to find the responsible for the fradulent transaction.
