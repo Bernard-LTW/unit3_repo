@@ -3,6 +3,7 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 import sqlite3
+from secure_password import hash_password, check_password
 
 class database_handler:
     def __init__(self,dbname):
@@ -38,13 +39,17 @@ class database_handler:
             return True
 
     def login_check(self, username, password):
-        query = f"SELECT * from users WHERE username = '{username}' AND password = '{password}'"
+        query = f"SELECT * from users WHERE username = '{username}'"
         self.run_query(query)
-        if self.cursor.fetchone() is None:
+        result = self.cursor.fetchone()
+        if result is None:
             return False
         else:
-            return True
-
+            id, email, db_username, hashed_password = result
+            if check_password(password, hashed_password):
+                return True
+            else:
+                return False
 
 
 class LoginScreen(MDScreen):
@@ -68,9 +73,13 @@ class RegisterScreen(MDScreen):
             self.ids.cpwd.error = True
             self.ids.cpwd.md_bg_color = "red"
         else:
+            pwd = hash_password(pwd)
             self.ids.cpwd.error = False
             self.ids.cpwd.md_bg_color = "green"
-            example_login.db.insert_user(email, uname, pwd)
+            db = database_handler("login_database.db")
+            db.insert_user(email, uname, pwd)
+            db.close()
+            self.parent.current = "LoginScreen"
 
 
 
