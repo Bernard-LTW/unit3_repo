@@ -1,4 +1,4 @@
-# Quiz 042
+# Quiz 046
 
 ## Prompt
 A company requires a program that calculates the average word length from a databse of words. Complete the code.
