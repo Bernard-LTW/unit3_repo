@@ -218,11 +218,7 @@ def check_database_integrity(db_file):
             hash_string = f"base{base}inhabitant{inhabitant}income_tax{income_tax}pension{pension}health{health}"
             if not check_encrypted_password(hash_string, hash):
                 print(f"Payment record {id} has been tampered with.")
-
-        print("Database integrity check complete. No tampered payment records found.")
-
-    except Exception as e:
-        print(f"Error checking database integrity: {e}")
+ checking database integrity: {e}")
 
     finally:
         conn.close()
