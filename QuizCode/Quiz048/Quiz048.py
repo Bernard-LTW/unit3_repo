@@ -28,4 +28,3 @@ for row in rows:
     else:
         print(f"{red}Tx(id={row.id})Error Signature{end}")
 
-

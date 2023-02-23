@@ -2,7 +2,7 @@ import sqlite3
 
 from kivymd.app import MDApp
 
-from secure_password import encrypt_password,check_encrypted_password
+from secure_password import encrypt_password, check_password
 class database_worker:
     def __init__(self, name):
         self.connection = sqlite3.connect(name)
@@ -90,7 +90,7 @@ class quiz047(MDApp):
 
 
 import sqlite3
-from secure_password import check_encrypted_password
+from secure_password import check_password
 
 
 def check_database_integrity(db_file):
@@ -103,8 +103,8 @@ def check_database_integrity(db_file):
 
         for row in rows:
             (id, base, inhabitant, income_tax, pension, health, total, hash) = row
-            hash_string = f"base{base}inhabitant{inhabitant}income_tax{income_tax}pension{pension}health{health}"
-            if not check_encrypted_password(hash_string, hash):
+            to_hash = f"base{base}inhabitant{inhabitant}income_tax{income_tax}pension{pension}health{health}"
+            if not check_password(hash, to_hash):
                 print(f"Payment record {id} has been tampered with.")
 
         print("Database integrity check complete. No tampered payment records found.")
