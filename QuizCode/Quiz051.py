@@ -4,15 +4,11 @@ class Wheel:
     def __init__(self, size):
         self.size = size
         self.cm = self.size * 2.54
-
-    def __str__(self):
-        return "Wheel: size = " + str(self.size) + ", color = " + self.color
     def get_size(self):
         return self.size
 
     def get_rotation_per_km(self):
         return 100000 / self.cm / 3.14
-
 
     def get_perimeter(self):
         return round(self.size / 2 * 3.14)
