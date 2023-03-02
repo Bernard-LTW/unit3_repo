@@ -1,4 +1,4 @@
-# Quiz 048
+# Quiz 050
 
 ## Prompt
 Create a python class to represent a flight offered by an airline.
