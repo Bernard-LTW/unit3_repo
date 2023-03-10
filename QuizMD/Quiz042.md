@@ -1,7 +1,7 @@
 # Quiz 042
 
 ## Prompt
-Code the GUI according to the given image(A Tic Tac Toe Game).
+Code the GUI according to the given image(Light/Dark Mode).
 
 HL: Code the functionality of the game.
 

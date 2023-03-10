@@ -225,7 +225,7 @@ def check_database_integrity(db_file):
 ```
 
 ## Demonstration
-![Demonstration](/Assets/Quiz047_Evidence.gif)
+![Demonstration](/Assets/Quiz047_Evidence.jpg)
 *Fig.1* **Demonstration of the application.**
 
 
